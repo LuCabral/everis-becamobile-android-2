@@ -8,9 +8,9 @@ data class MoviesList(var results: ArrayList<Movies>?=null,var page: String?="")
 
 data class Movies(
 
-        @SerializedName("post_path") val poster_path:String?,
-        @SerializedName ("title") val title: String?,
+        @SerializedName("poster_path") val poster_path:String,
+        @SerializedName ("title") val title: String,
         @SerializedName("id") val id: Int,
-        @SerializedName("overview") val overview: String?,
-        @SerializedName("vote_average") val vote_overage:String?)
+        @SerializedName("overview") val overview: String,
+        @SerializedName("vote_average") val vote_overage:String)
 
