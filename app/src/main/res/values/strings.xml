@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Movies</string>
+    <string name="path_poster">PathPoster</string>
+    <string name="rate_overage">Rating</string>
+    <string name="overview">Overview</string>
+    <string name="title">Title</string>
 </resources>

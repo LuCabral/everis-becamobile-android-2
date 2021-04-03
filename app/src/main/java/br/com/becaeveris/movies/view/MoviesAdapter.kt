@@ -1,6 +1,5 @@
 package br.com.becaeveris.movies
 
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,11 +9,8 @@ import androidx.recyclerview.widget.RecyclerView
 import br.com.becaeveris.movies.model.Movies
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.CenterCrop
-import okhttp3.internal.notify
 
-class
-
-MoviesAdapter(
+class MoviesAdapter(
 
     private var moviesList: List<Movies>
     ) :RecyclerView.Adapter<MoviesAdapter.MoviesViewHolder>() {
@@ -30,20 +26,28 @@ MoviesAdapter(
 
     override fun onBindViewHolder(holder: MoviesViewHolder, position: Int){
         holder.bind(moviesList[position])
+        val item = moviesList[position]
+        //item.title.also { holder.title.text = it }
 
     }
-    inner class MoviesViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
 
-        val posterPath: ImageView = itemView.findViewById(R.id.poster_path_img)
+    class MoviesViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
+
+       private val posterPath: ImageView = itemView.findViewById(R.id.poster_path_img)
+       private val title: TextView = itemView.findViewById(R.id.title)
+
+
         fun bind(movies:Movies){
-            Glide.with(itemView)
+                title.text = movies.title
+
+                Glide.with(itemView)
                 .load("https://image.tmdb.org/t/p/w342${movies.poster_path}")
                 .transform(CenterCrop())
                 .into(posterPath)
+        }
 
-
-        }        }
-    fun UpdateMovies(movies:List<Movies>){
+   }
+        fun UpdateMovies(movies:List<Movies>){
         this.moviesList=movies
         notifyDataSetChanged()
     }
