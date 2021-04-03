@@ -12,7 +12,9 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.CenterCrop
 import okhttp3.internal.notify
 
-class MoviesAdapter(
+class
+
+MoviesAdapter(
 
     private var moviesList: List<Movies>
     ) :RecyclerView.Adapter<MoviesAdapter.MoviesViewHolder>() {
